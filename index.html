@@ -25,6 +25,9 @@
 <button data-nav="reports" class="nav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-slate-100 transition"><svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Reports</button>
 <button data-nav="about" class="nav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-slate-100 transition"><svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>About us</button>
 <button data-nav="settings" class="nav w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-slate-100 transition"><svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>Settings</button>
+<div class="mt-auto pt-3 border-t border-slate-200">
+<button id="sideExit" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left text-red-600 hover:bg-red-50 transition"><svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>Exit</button>
+</div>
 </aside>
 <div id="overlay" class="fixed inset-0 bg-slate-900/40 z-20 hidden lg:hidden"></div>
 <div class="flex-1 lg:ml-64 min-w-0">
@@ -195,6 +198,14 @@
         frame.src='https://www.openstreetmap.org/export/embed.html?bbox='+[b[2],b[0],b[3],b[1]].join(',')+'&layer=mapnik';
       })
       .catch(function(){});
+  });
+})();
+(function(){
+  document.getElementById('sideExit').addEventListener('click',function(){
+    if(confirm('Exit Wanderly?')){
+      window.close();
+      setTimeout(function(){location.href='about:blank';},200);
+    }
   });
 })();
 </script>
